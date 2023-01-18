@@ -1,0 +1,22 @@
+@layout('layouts/main')
+
+@set('title', "Accueil")
+
+@section('body')
+    <h2 class="text-6xl font-bold my-2">Bienvenue !</h2>
+
+    @if(flashMessages.has('msgRegister'))
+        @!component('components/alert', {
+            message: flashMessages.get('msgRegister.message'),
+            type: flashMessages.get('msgRegister.type')
+        })
+    @end
+
+    @if(isLoggedIn)
+        Vous êtes connecté en tant que {{ name }}
+    @else
+        Vous n'êtes pas connecté
+    @end
+
+    ({{ isLoggedIn }})
+@end

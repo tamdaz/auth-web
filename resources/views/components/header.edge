@@ -1,0 +1,10 @@
+<div class="flex px-6 py-4 bg-purple-700 text-white shadow-md">
+    <span class="font-bold">Authentification Web</span>
+    <div class="flex-1"></div>
+
+    @if(auth.isLoggedIn)
+        <button onclick="window.location.href = '/logout'">Se déconnecter</button>
+    @else
+        <button onclick="window.location.href = '/login'">Se connecter</button>
+    @end
+</div>

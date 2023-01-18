@@ -1,0 +1,21 @@
+@if(type === "info")
+    <div class="px-6 py-4 border-l-8 border-l-blue-500 bg-blue-50 rounded-md shadow-md">
+        {{ (message !== undefined) ? message : "" }}
+        {{{ await $slots.main() }}}
+    </div>
+@elseif(type === "success")
+    <div class="px-6 py-4 border-l-8 border-l-green-500 bg-green-50 rounded-md shadow-md">
+        {{ (message !== undefined) ? message : "" }}
+        {{{ await $slots.main() }}}
+    </div>
+@elseif(type === "warn")
+    <div class="px-6 py-4 border-l-8 border-l-yellow-500 bg-yellow-50 rounded-md shadow-md">
+        {{ (message !== undefined) ? message : "" }}
+        {{{ await $slots.main() }}}
+    </div>
+@elseif(type === "error")
+    <div class="px-6 py-4 border-l-8 border-l-red-500 bg-red-50 rounded-md shadow-md">
+        {{ (message !== undefined) ? message : "" }}
+        {{{ await $slots.main() }}}
+    </div>
+@end
