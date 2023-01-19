@@ -3,40 +3,36 @@
 @set('title', "Se connecter")
 
 @section('body')
-    <div class="w-[500px] p-6 rounded-xl bg-white border shadow-lg">
-        <h1 class="text-5xl font-bold">Se connecter</h1>
-        <p class="py-2">
-            Veuillez saisir les informations pour se connecter
-        </p>
-
-        @if(flashMessages.has('msgLogin'))
-            @component('components/alert', {
-                type: flashMessages.get('msgLogin.type')
-            })
-                @each(message in flashMessages.get('msgLogin.messages'))
-                    {{ "- " + message }} <br />
-                @end
+    <h1 class="text-4xl sm:text-5xl font-bold">Se connecter</h1>
+    <p class="py-2">
+        Veuillez saisir les informations pour vous connecter
+    </p>
+    @if(flashMessages.has('msgLogin'))
+        @component('components/alert', {
+            type: flashMessages.get('msgLogin.type')
+        })
+            @each(message in flashMessages.get('msgLogin.messages'))
+                {{ "- " + message }} <br />
             @end
         @end
-
-        <form action="{{ route('AuthController.login') }}" class="my-4" method="post">
-            @!component('components/text_field', {
-                type: "text",
-                placeholder: "Nom d'utilisateur",
-                name: "username"
-            })
-            @!component('components/text_field', {
-                type: "password",
-                placeholder: "Mot de passe",
-                name: "password"
-            })
-            <button
-                class="w-full bg-purple-500 py-2 text-white rounded-lg hover:shadow-sm hover:shadow-purple-300 active:shadow-md transition">
-                Se connecter
-            </button>
-            <span class="block text-center pt-2">
-                Vous n'avez pas de compte ? <a class="text-purple-500 hover:underline" href="/register">Créez en un</a>.
-            </span>
-        </form>
-    </div>
+    @end
+    <form action="{{ route('AuthController.login') }}" class="mt-4" method="post">
+        @!component('components/text_field', {
+            type: "text",
+            placeholder: "Nom d'utilisateur",
+            name: "username"
+        })
+        @!component('components/text_field', {
+            type: "password",
+            placeholder: "Mot de passe",
+            name: "password"
+        })
+        <button
+            class="w-full bg-purple-500 py-2 text-white rounded-lg hover:shadow-sm hover:shadow-purple-300 active:shadow-md transition">
+            Se connecter
+        </button>
+        <span class="block text-center pt-2">
+            Vous n'avez pas de compte ? <a class="text-purple-500 hover:underline" href="/register">Créez en un</a>.
+        </span>
+    </form>
 @end

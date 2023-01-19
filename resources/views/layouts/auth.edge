@@ -9,8 +9,10 @@
         @entryPointStyles('app')
     </head>
     <body>
-        <div class="flex justify-center items-center w-screen h-screen">
-            @!section('body')
+        <div class="flex justify-center items-center w-screen h-screen bg-neutral-100">
+            <div class="w-[500px] p-6 px-8 sm:rounded-xl sm:bg-white sm:border sm:shadow-lg">
+                @!section('body')
+            </div>
         </div>
     </body>
 </html>
