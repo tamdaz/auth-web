@@ -1,9 +1,9 @@
 @layout('layouts/main')
 
-@set('title', "Accueil")
+@set('title', t('home.title'))
 
 @section('body')
-    <h2 class="text-6xl font-bold my-2">Bienvenue !</h2>
+    <h2 class="text-6xl font-bold my-2">{{ t('home.welcome') }}</h2>
 
     @if(flashMessages.has('msgRegister'))
         @!component('components/alert', {
@@ -13,8 +13,10 @@
     @end
 
     @if(isLoggedIn)
-        Vous êtes connecté en tant que {{ name }}
+        {{ t('home.you_are_connected_as', {
+            username: `${name}`
+        })}}
     @else
-        Vous n'êtes pas connecté
+        {{ t('home.you_are_not_connected') }}
     @end
 @end

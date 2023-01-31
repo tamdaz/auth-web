@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <title>{{ title }}</title>
+    <head>
+        <meta charset='utf-8' />
+        <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <title>{{ title }}</title>
 
-    @entryPointStyles('app')
-  </head>
-  <body>
-    @!component('components/header')
-    <div class="m-auto px-6 md:w-2/3 pt-4">
-      @!section('body')
-    </div>
-  </body>
+        @entryPointStyles('app')
+    </head>
+    <body>
+        @!component('components/header')
+        <div class="m-auto px-6 md:w-2/3 pt-4">
+            @!section('body')
+        </div>
+    </body>
 </html>

@@ -1,38 +1,42 @@
 @layout('layouts/auth')
 
-@set('title', "Se connecter")
+@set('title', t('auth.login.title'))
 
 @section('body')
-    <h1 class="text-4xl sm:text-5xl font-bold">Se connecter</h1>
+    <h1 class="text-4xl sm:text-5xl font-bold">{{ t('auth.login.title') }}</h1>
     <p class="py-2">
-        Veuillez saisir les informations pour vous connecter
+        {{ t('auth.login.details') }}
     </p>
     @if(flashMessages.has('msgLogin'))
         @component('components/alert', {
             type: flashMessages.get('msgLogin.type')
         })
-            @each(message in flashMessages.get('msgLogin.messages'))
-                {{ "- " + message }} <br />
+            @if (typeof flashMessages.get('msgLogin.messages') === "string")
+                {{ t(flashMessages.get('msgLogin.messages')) }}
+            @else
+                @each(message in flashMessages.get('msgLogin.messages'))
+                    {{ "- " + message }} <br />
+                @end
             @end
         @end
     @end
     <form action="{{ route('AuthController.login') }}" class="mt-4" method="post">
         @!component('components/text_field', {
             type: "text",
-            placeholder: "Nom d'utilisateur",
+            placeholder: `${t('auth.login.username_placeholder')}`,
             name: "username"
         })
         @!component('components/text_field', {
             type: "password",
-            placeholder: "Mot de passe",
+            placeholder: `${t('auth.login.password_placeholder')}`,
             name: "password"
         })
         <button
             class="w-full bg-purple-500 py-2 text-white rounded-lg hover:shadow-sm hover:shadow-purple-300 active:shadow-md transition">
-            Se connecter
+            {{ t('auth.login.submit') }}
         </button>
         <span class="block text-center pt-2">
-            Vous n'avez pas de compte ? <a class="text-purple-500 hover:underline" href="/register">Créez en un</a>.
+            {{ t('auth.login.dont_have_an_account') }} <a class="text-purple-500 hover:underline" href="/register">{{ t('auth.login.create_one') }}</a>.
         </span>
     </form>
 @end

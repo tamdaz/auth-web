@@ -1,0 +1,6 @@
+{
+  "title": "Accueil",
+  "welcome": "Bienvenue !",
+  "you_are_connected_as": "Vous êtes connecté en tant que : { username }",
+  "you_are_not_connected": "Vous n'êtes pas connecté"
+}

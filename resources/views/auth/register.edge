@@ -1,11 +1,11 @@
 @layout('layouts/auth')
 
-@set('title', "S'inscrire")
+@set('title', t('auth.register.title'))
 
 @section('body')
-    <h1 class="text-5xl font-bold">S'inscrire</h1>
+    <h1 class="text-5xl font-bold">{{ t('auth.register.title') }}</h1>
     <p class="py-2">
-        Veuillez saisir les informations pour vous inscrire
+        {{ t('auth.register.details') }}
     </p>
     @if(flashMessages.has('msgRegister'))
         @component('components/alert', {
@@ -19,25 +19,25 @@
     <form action="{{ route('AuthController.register') }}" class="mt-4" method="post">
         @!component('components/text_field', {
             type: "text",
-            placeholder: "Nom d'utilisateur",
+            placeholder: `${t('auth.register.username_placeholder')}`,
             name: "username"
         })
         @!component('components/text_field', {
             type: "password",
-            placeholder: "Mot de passe",
+            placeholder: `${t('auth.register.password_placeholder')}`,
             name: "password"
         })
         @!component('components/text_field', {
             type: "password",
-            placeholder: "Confirmer le mot de passe",
+            placeholder: `${t('auth.register.password_confirmation_placeholder')}`,
             name: "password_confirmation"
         })
         <button
             class="w-full bg-purple-500 py-2 text-white rounded-lg hover:shadow-sm hover:shadow-purple-300 active:shadow-md transition">
-            Créer un compte
+            {{ t('auth.register.submit') }}
         </button>
         <span class="block text-center pt-2">
-            Vous avez déjà un compte ? <a class="text-purple-500 hover:underline" href="/login">Connectez-vous</a>
+            {{ t('auth.register.already_have_an_account') }} <a class="text-purple-500 hover:underline" href="/login">{{ t('auth.register.login') }}</a>
         </span>
     </form>
 @end

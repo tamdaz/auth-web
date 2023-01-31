@@ -43,6 +43,7 @@ export default class LoginValidator {
    */
   public messages: CustomMessages = {
     'username.required': "Nom d'utilisateur requis",
-    'password.required': "Mot de passe requis"
+    'password.required': "Mot de passe requis",
+    'password.minLength': "Votre mot de passe doit contenir au moins {{ options.minLength }} caractères"
   }
 }

@@ -1,9 +1,9 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-import LoginValidator from 'App/Validators/LoginValidator';
-import RegisterValidator from 'App/Validators/RegisterValidator';
+import LoginValidator from 'App/Validators/LoginValidator'
+import RegisterValidator from 'App/Validators/RegisterValidator'
 
-import User from 'App/Models/User';
+import User from 'App/Models/User'
 
 export default class AuthController {
   /**
@@ -34,9 +34,9 @@ export default class AuthController {
       return response.redirect('/');
     } catch (e) {
       session.flash('msgLogin', {
-        messages: e.messages,
+        messages: (e.messages !== undefined) ? e.messages : "auth.login.the_username_or_password_is_incorrect",
         type: "error"
-      });
+      })
 
       return response.redirect().back();
     }
@@ -69,6 +69,8 @@ export default class AuthController {
         messages: e.messages,
         type: "error"
       });
+
+      console.log(e);
 
       return response.redirect().back();
     }
