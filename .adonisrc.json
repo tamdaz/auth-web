@@ -30,11 +30,11 @@
   "metaFiles": [
     {
       "pattern": "public/**",
-      "reloadServer": false
+      "reloadServer": true
     },
     {
       "pattern": "resources/views/**/*.edge",
-      "reloadServer": false
+      "reloadServer": true
     },
     "resources/lang/**/*.(json|yaml)"
   ],

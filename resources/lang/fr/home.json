@@ -1,6 +1,9 @@
 {
   "title": "Accueil",
   "welcome": "Bienvenue !",
+  "your_account_has_been_created": "Votre compte a bien été créé",
   "you_are_connected_as": "Vous êtes connecté en tant que : { username }",
-  "you_are_not_connected": "Vous n'êtes pas connecté"
+  "you_are_not_connected": "Vous n'êtes pas connecté",
+  "log_in": "Se connecter",
+  "log_out": "Se déconnecter"
 }

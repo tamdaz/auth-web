@@ -3,8 +3,8 @@
     <div class="flex-1"></div>
 
     @if(auth.isLoggedIn)
-        <button onclick="window.location.href = '/logout'">Se déconnecter</button>
+        <button onclick="window.location.href = '/logout'">{{ t('home.log_out') }}</button>
     @else
-        <button onclick="window.location.href = '/login'">Se connecter</button>
+        <button onclick="window.location.href = '/login'">{{ t('home.log_in') }}</button>
     @end
 </div>

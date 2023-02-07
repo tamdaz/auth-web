@@ -59,7 +59,7 @@ export default class AuthController {
       await auth.use('web').attempt(username, password);
 
       session.flash('msgRegister', {
-        message: "Votre compte a bien été créé",
+        message: "home.your_account_has_been_created",
         type: "success"
       })
 

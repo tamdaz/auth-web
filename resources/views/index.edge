@@ -7,7 +7,7 @@
 
     @if(flashMessages.has('msgRegister'))
         @!component('components/alert', {
-            message: flashMessages.get('msgRegister.message'),
+            message: t(flashMessages.get('msgRegister.message')),
             type: flashMessages.get('msgRegister.type')
         })
     @end
